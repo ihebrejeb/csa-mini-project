@@ -9,7 +9,7 @@ import { Issue } from '../models/Issue';
 })
 export class IssuesComponent implements OnInit {
 
-  issues:Issue[];
+  issues: Issue[];
   constructor(private service: IssueService) {
    }
 

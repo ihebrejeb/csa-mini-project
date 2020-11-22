@@ -1,3 +1,17 @@
-<div class="issue">
-    <h1 class="issue-header">{{issue.name}}</h1>
-</div>
+
+<mat-card class="example-card"  [routerLink]="['/issues', issue.id]">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{issue.name}}</mat-card-title>
+    <mat-card-subtitle>{{issue.title}} at {{issue.createdAt}}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="{{issue.imageUrl}}">
+  <mat-card-content>
+    <p>
+      {{issue.description}}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button>Mark as finished</button>
+  </mat-card-actions>
+</mat-card>

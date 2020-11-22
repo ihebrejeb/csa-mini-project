@@ -11,20 +11,20 @@ export class IssueService {
 
   constructor(private http: HttpClient) { }
 
-  
+
   getIssues() {
     return this.http.get<Issue[]>(this.url);
   }
 
-  deleteIssue(id:string) {
+  deleteIssue(id: string) {
     return this.http.delete(this.url + id);
   }
 
-  addEmploye(e: Issue) {
+  addIssue(e: Issue) {
     return this.http.post(this.url, e);
   }
 
-  searchIssue(id:string) {
+  searchIssue(id: string) {
     return this.http.get(this.url + id);
   }
 

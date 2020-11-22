@@ -3,7 +3,8 @@ export class Issue {
     name: string;
     description: string;
     createdAt: string;
-    priority:string;
+    title: string;
+    priority: string;
     isFinished: boolean;
+  imageUrl: string;
   }
-  
