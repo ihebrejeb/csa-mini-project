@@ -9,7 +9,7 @@ export const fader = trigger('routeAnimations', [
           width: '100%' ,
           left: 0,
           opacity: 0,
-          transform: 'scale(0) translateY(100%)'
+          transform: 'scale(0) translateX(50%)'
         }
       )
     ], { optional: true }),

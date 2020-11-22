@@ -12,8 +12,8 @@ export class IssueService {
   constructor(private http: HttpClient) { }
 
 
-  getIssues() {
-    return this.http.get<Issue[]>(this.url);
+  getIssues(page: number) {
+    return this.http.get<Issue[]>(this.url + `?_page=${page}&_limit=3`);
   }
 
   deleteIssue(id: string) {
@@ -29,6 +29,6 @@ export class IssueService {
   }
 
   putIssue(e: Issue) {
-    return this.http.put(this.url, e);
+    return this.http.put(this.url + e.id, e);
   }
 }

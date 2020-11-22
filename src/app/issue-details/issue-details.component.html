@@ -11,6 +11,12 @@
     <p>
       Description: {{issue && issue.description}}
     </p>
+      <p *ngIf="issue && issue.isFinished">
+        finished
+      </p>
+      <p *ngIf="issue && !issue.isFinished">
+        not finished
+      </p>
     </div>
   </mat-card-content>
   <mat-card-actions>

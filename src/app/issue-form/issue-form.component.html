@@ -1,0 +1,23 @@
+<div class="wrapper">
+<mat-card class="form-wrapper">
+<form [formGroup]="issueForm" (ngSubmit)="onSubmit()" class="form">
+  <mat-card-header>
+    <mat-card-title>Add an issue</mat-card-title>
+  </mat-card-header>
+    <mat-form-field appearance="outline"  color="accent" class="full-width">
+      <mat-label>Title:</mat-label>
+      <input matInput placeholder="Title" autocomplete="off" formControlName="title" required>
+    </mat-form-field>
+  <mat-form-field appearance="outline" color="accent" class="full-width">
+    <mat-label>Description:</mat-label>
+    <textarea matInput placeholder="Description" autocomplete="off" formControlName="description" required></textarea>
+  </mat-form-field>
+
+  <input formControlName="image" style="display: none" #fileInput placeholder="Image" type="file" autocomplete="off" accept="image/*" (change)="onFileChanged($event)" required>
+  <a class="image-picker"  mat-button (click)="fileInput.click()">Select an image</a>
+
+  <img *ngIf="image" [src]="image" alt="image" class="image">
+  <button mat-raised-button color="accent" type="submit" [disabled]="!issueForm.valid">Submit</button>
+</form>
+</mat-card>
+</div>

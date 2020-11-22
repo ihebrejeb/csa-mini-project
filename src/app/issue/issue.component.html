@@ -1,9 +1,9 @@
 
-<mat-card class="example-card"  [routerLink]="['/issues', issue.id]">
+<mat-card class="example-card"  [routerLink]="['/issues', issue.id]" [class.is-finished]="issue.isFinished">
   <mat-card-header>
     <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>{{issue.name}}</mat-card-title>
-    <mat-card-subtitle>{{issue.title}} at {{issue.createdAt}}</mat-card-subtitle>
+    <mat-card-title>{{issue.title}}</mat-card-title>
+    <mat-card-subtitle class="sub-color">{{issue.name}} at {{date}}</mat-card-subtitle>
   </mat-card-header>
   <img mat-card-image src="{{issue.imageUrl}}">
   <mat-card-content>
@@ -12,6 +12,7 @@
     </p>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-button>Mark as finished</button>
+    <button mat-raised-button color="accent" (click)="onEvent($event)" *ngIf="!issue.isFinished">Mark as finished</button>
+    <button mat-raised-button color="warn" (click)="onEvent($event)" *ngIf="issue.isFinished">Mark as unfinished</button>
   </mat-card-actions>
 </mat-card>

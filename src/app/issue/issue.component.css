@@ -2,6 +2,14 @@
   max-width: 300px;
   width: 300px;
   cursor: pointer;
+  background-color: #f44336;
+  color: #303030;
+}
+.sub-color{
+  color: #303030;
+}
+.is-finished{
+  background-color: #69f0ae;
 }
 
 .example-header-image {
