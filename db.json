@@ -1,0 +1,20 @@
+{
+    "issues": [
+        {
+        "id": "one",
+        "name": "name1",
+        "description": "desc1",
+        "createdAt": "string",
+        "priority":"string",
+        "isFinished": false
+        },
+        {
+            "id": "two",
+            "name": "name2",
+            "description": "desc2",
+            "createdAt": "string",
+            "priority":"string",
+            "isFinished": false
+            }
+        ]
+}

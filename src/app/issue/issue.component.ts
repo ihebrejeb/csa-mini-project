@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Issue } from './../models/Issue';
+
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-issue',
@@ -6,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./issue.component.css']
 })
 export class IssueComponent implements OnInit {
+  
 
-  constructor() { }
-
+  @Input() issue:Issue
   ngOnInit(): void {
   }
 

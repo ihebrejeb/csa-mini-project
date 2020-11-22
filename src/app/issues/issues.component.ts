@@ -1,4 +1,6 @@
+import { IssueService } from './../shared/issue.service';
 import { Component, OnInit } from '@angular/core';
+import { Issue } from '../models/Issue';
 
 @Component({
   selector: 'app-issues',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IssuesComponent implements OnInit {
 
-  constructor() { }
+  issues:Issue[];
+  constructor(private service: IssueService) {
+   }
 
   ngOnInit(): void {
+    this.service.getIssues().subscribe(
+      (data: Issue[]) => this.issues = data
+    );
   }
 
 }

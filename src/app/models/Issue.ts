@@ -2,7 +2,7 @@ export class Issue {
     id: string;
     name: string;
     description: string;
-    createdAt: Date;
+    createdAt: string;
     priority:string;
     isFinished: boolean;
   }
