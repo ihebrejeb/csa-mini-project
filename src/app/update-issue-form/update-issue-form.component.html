@@ -1,0 +1,73 @@
+<div class="wrapper" *ngIf="issue; else elseBlock">
+  <mat-card class="form-wrapper">
+    <form class="form" #issueForm="ngForm" (ngSubmit)="onSubmit()">
+      <mat-card-header>
+        <mat-card-title>Edit issue</mat-card-title>
+      </mat-card-header>
+
+      <mat-form-field appearance="outline"  color="accent" class="full-width">
+        <mat-label>Title:</mat-label>
+        <input matInput placeholder="Title"
+               autocomplete="off"
+               [(ngModel)]="issue.title"
+               required
+               minlength="4"
+               maxlength="12"
+               name="title"
+               id="title"
+               #title="ngModel">
+        <mat-error *ngIf="title.invalid && (title.dirty || title.touched)">
+          <span *ngIf="title.errors.required">
+            Title is required.
+          </span>
+          <span *ngIf="title.errors.minlength||title.errors.maxLength">
+              Title must be between 4 and 12 characters long
+          </span>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" color="accent" class="full-width">
+        <mat-label>Description:</mat-label>
+        <textarea rows="6"
+                  matInput
+                  placeholder="Description"
+                  [(ngModel)]="issue.description"
+                  autocomplete="off"
+                  name="description"
+                  required
+                  minlength="4"
+                  maxlength="255"
+                  #description="ngModel"
+        ></textarea>
+        <mat-error *ngIf="description.invalid && (description.dirty || description.touched)">
+          <span *ngIf="description.errors.required">
+            Description is required.
+          </span>
+          <span *ngIf="description.errors.minlength||description.errors.maxLength">
+             Description must be between 4 and 255 characters long
+          </span>
+        </mat-error>
+      </mat-form-field>
+
+      <input name="image"
+             style="display: none"
+             #fileInput
+             #img="ngModel"
+             [(ngModel)]="test"
+             placeholder="Image"
+             type="file"
+             autocomplete="off"
+             accept="image/*"
+             (change)="onFileChanged($event)"
+             >
+      <span *ngIf="!issue.imageUrl" style="color: red">
+    image is <strong>required</strong>
+  </span>
+      <a class="image-picker"  mat-button (click)="fileInput.click()">Select an image</a>
+
+      <img *ngIf="issue.imageUrl" [src]="issue.imageUrl" alt="image" class="image">
+      <button mat-raised-button color="accent" type="submit" [disabled]="!issueForm.form.valid||!issue.imageUrl">Save</button>
+    </form>
+  </mat-card>
+</div >
+<ng-template #elseBlock> Loading </ng-template>

@@ -18,6 +18,8 @@ import { IssueDetailsComponent } from './issue-details/issue-details.component';
 import { IssueFormComponent } from './issue-form/issue-form.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+import { UpdateIssueFormComponent } from './update-issue-form/update-issue-form.component';
 
 
 
@@ -28,23 +30,25 @@ import {MatInputModule} from '@angular/material/input';
     IssueComponent,
     SearchComponent,
     IssueDetailsComponent,
-    IssueFormComponent
+    IssueFormComponent,
+    UpdateIssueFormComponent
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    FormsModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatCardModule,
-    AppRoutingModule,
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-  ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        FormsModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatButtonModule,
+        MatSidenavModule,
+        MatCardModule,
+        AppRoutingModule,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatSelectModule,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

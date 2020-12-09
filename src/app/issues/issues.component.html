@@ -1,6 +1,6 @@
+<app-search (filterEvent)="filterData($event)"></app-search>
 <div class="issue-list">
-<div  *ngFor="let issue of issues">
-    <app-issue [issue]="issue"></app-issue>
+<div  *ngFor="let issue of filteredIssues">
+    <app-issue [issue]="issue" (deleteIssueEvent)="deleteIssue($event)"></app-issue>
 </div>
-  <button (click)="next()">next</button>
 </div>

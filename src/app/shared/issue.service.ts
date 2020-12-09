@@ -12,8 +12,8 @@ export class IssueService {
   constructor(private http: HttpClient) { }
 
 
-  getIssues(page: number) {
-    return this.http.get<Issue[]>(this.url + `?_page=${page}&_limit=3`);
+  getIssues() {
+    return this.http.get<Issue[]>(this.url);
   }
 
   deleteIssue(id: string) {

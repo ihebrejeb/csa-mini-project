@@ -1,0 +1,10 @@
+.example-form-field{
+  width: 50%;
+  color: black;
+}
+.full-width{
+  width: 100%;
+display: flex;
+  justify-content: center;
+  align-items: center;
+}

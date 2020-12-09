@@ -14,5 +14,11 @@
   <mat-card-actions>
     <button mat-raised-button color="accent" (click)="onEvent($event)" *ngIf="!issue.isFinished">Mark as finished</button>
     <button mat-raised-button color="warn" (click)="onEvent($event)" *ngIf="issue.isFinished">Mark as unfinished</button>
+    <button mat-raised-button color="primary" (click)="onDelete($event)">
+      <mat-icon aria-hidden="false">delete</mat-icon>
+      </button>
+    <button mat-raised-button color="accent" (click)="onUpdate($event)">
+      <mat-icon aria-hidden="false">edit</mat-icon>
+    </button>
   </mat-card-actions>
 </mat-card>

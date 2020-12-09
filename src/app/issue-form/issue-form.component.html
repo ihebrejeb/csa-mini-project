@@ -6,17 +6,32 @@
   </mat-card-header>
     <mat-form-field appearance="outline"  color="accent" class="full-width">
       <mat-label>Title:</mat-label>
-      <input matInput placeholder="Title" autocomplete="off" formControlName="title" required>
+      <input matInput placeholder="Title" autocomplete="off" formControlName="title" required id="title" [errorStateMatcher]="matcher">
+      <mat-error *ngIf="!title.hasError('required')">
+        Title must be between 4 and 12 characters long
+      </mat-error>
+      <mat-error *ngIf="title.hasError('required')">
+        Title is <strong>required</strong>
+      </mat-error>
     </mat-form-field>
   <mat-form-field appearance="outline" color="accent" class="full-width">
     <mat-label>Description:</mat-label>
-    <textarea matInput placeholder="Description" autocomplete="off" formControlName="description" required></textarea>
+    <textarea rows="6" matInput placeholder="Description" autocomplete="off" formControlName="description" required></textarea>
+    <mat-error *ngIf="!description.hasError('required')">
+      Description must be between 4 and 255 characters long
+    </mat-error>
+    <mat-error *ngIf="description.hasError('required')">
+      Description is <strong>required</strong>
+    </mat-error>
   </mat-form-field>
 
   <input formControlName="image" style="display: none" #fileInput placeholder="Image" type="file" autocomplete="off" accept="image/*" (change)="onFileChanged($event)" required>
+  <span *ngIf="image.dirty&&image.hasError('required')" style="color: red">
+    image is <strong>required</strong>
+  </span>
   <a class="image-picker"  mat-button (click)="fileInput.click()">Select an image</a>
 
-  <img *ngIf="image" [src]="image" alt="image" class="image">
+  <img *ngIf="imageUrl" [src]="imageUrl" alt="image" class="image">
   <button mat-raised-button color="accent" type="submit" [disabled]="!issueForm.valid">Submit</button>
 </form>
 </mat-card>

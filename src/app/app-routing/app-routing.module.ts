@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { IssuesComponent } from '../issues/issues.component';
 import {IssueDetailsComponent} from '../issue-details/issue-details.component';
 import {IssueFormComponent} from '../issue-form/issue-form.component';
+import {UpdateIssueFormComponent} from '../update-issue-form/update-issue-form.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,11 @@ const routes: Routes = [
   {
     path: 'issues/:id',
     component: IssueDetailsComponent,
+    data: { animation: 'isRight'}
+  },
+  {
+    path: 'issues/update/:id',
+    component: UpdateIssueFormComponent,
     data: { animation: 'isRight'}
   },
   {
